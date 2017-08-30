@@ -31,13 +31,14 @@ export default class FilterableListView extends Component {
     }
 
     render() {
-        const { placeholder, cells, totalCellsCount } = this.props;
+        const { children, placeholder, cells, totalCellsCount } = this.props;
         const { query } = this.state;
 
         return (
             <div className="list-contacts">
                 <div className='list-contacts-top'>
                     <TextInput name='filterInput' placeholder={placeholder} value={query} changeHandler={this.changeHandler} />
+                    {children}
                 </div>
                 {cells.length < totalCellsCount && 
                     <FilterStatus numUnfiltered={cells.length} total={totalCellsCount} showAllHandler={this.clearQuery} />

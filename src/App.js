@@ -72,7 +72,9 @@ class App extends Component {
       <ContactCellView key={id} id={id} pic={avatarURL} name={name} email={email} removeBtnHandler={this.removeContact} />)
 
     return (
-      <FilterableListView cells={cells} totalCellsCount={contacts.length} filterHandler={this.storeFilterQuery} placeholder='Filter' />
+      <FilterableListView cells={cells} totalCellsCount={contacts.length} filterHandler={this.storeFilterQuery} placeholder='Filter'>
+        <button className='add-contact'>Add Contact</button>
+      </FilterableListView>
     );
   }
 }
