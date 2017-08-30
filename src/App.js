@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import sortBy from 'sort-by';
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import * as ContactsAPI from './utils/ContactsAPI';
 import FilterableListView from './FilterableListView';
 import ContactCellView from './ContactCellView';
+import CreateContactForm from './CreateContactForm';
 
 class App extends Component {
   state = {
@@ -65,7 +66,7 @@ class App extends Component {
     ContactsAPI.remove(contactToRemove);
   }
 
-  render() {
+  renderIndex = () => {
     let filteredContacts = this.filterContacts();
     const { contacts } = this.state;
 
@@ -76,6 +77,15 @@ class App extends Component {
       <FilterableListView cells={cells} totalCellsCount={contacts.length} filterHandler={this.storeFilterQuery} placeholder='Filter'>
         <Link className='add-contact' to="/create">Add Contact</Link>
       </FilterableListView>
+    );
+  }
+
+  render() {
+    return (
+      <div class="app">
+        <Route exact path='/' render={this.renderIndex} />
+        <Route exact path='/create' component={CreateContactForm} />
+      </div>
     );
   }
 }
