@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import sortBy from 'sort-by';
+import { Link } from 'react-router-dom';
 import * as ContactsAPI from './utils/ContactsAPI';
 import FilterableListView from './FilterableListView';
 import ContactCellView from './ContactCellView';
@@ -73,7 +74,7 @@ class App extends Component {
 
     return (
       <FilterableListView cells={cells} totalCellsCount={contacts.length} filterHandler={this.storeFilterQuery} placeholder='Filter'>
-        <button className='add-contact'>Add Contact</button>
+        <Link className='add-contact' to="/create">Add Contact</Link>
       </FilterableListView>
     );
   }
