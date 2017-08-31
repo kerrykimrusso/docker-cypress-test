@@ -22,11 +22,12 @@ class App extends Component {
   }
 
   addContact = (newContact) => {
-    this.setState({
-      contacts: [...this.state.contacts, newContact].sort(sortBy('name'))
-    })
-
-    // ContactsAPI.create(newContact);
+    ContactsAPI.create(newContact)
+    .then((contact) => {
+      this.setState({
+        contacts: [...this.state.contacts, contact].sort(sortBy('name'))
+      })
+    });
   }
 
   filterContacts = () => {
@@ -80,11 +81,21 @@ class App extends Component {
     );
   }
 
+  renderCreateContactForm = ({ history }) => {
+    return (
+      <CreateContactForm 
+        submitHandler={(contact) => {
+          this.addContact(contact); 
+          history.push('/'); }
+        } />
+    );
+  }
+
   render() {
     return (
-      <div class="app">
+      <div className="app">
         <Route exact path='/' render={this.renderIndex} />
-        <Route exact path='/create' component={CreateContactForm} />
+        <Route exact path='/create' render={this.renderCreateContactForm} />
       </div>
     );
   }
