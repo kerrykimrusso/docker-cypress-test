@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ImageInput from './ImageInput';
+import serialize from 'form-serialize';
 
 export default class CreateContactForm extends Component {
     handleSubmit = (e) => {
-
+        e.preventDefault();
+        this.props.submitHandler(serialize(e.target, { hash: true }));
     }
 
     render() {
