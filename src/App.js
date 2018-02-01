@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import sortBy from 'sort-by';
+import ContactsAPI from './api/contacts.api';
 import { Route, Link } from 'react-router-dom';
-import * as ContactsAPI from './utils/ContactsAPI';
 import FilterableListView from './FilterableListView';
 import ContactCellView from './ContactCellView';
 import CreateContactForm from './CreateContactForm';

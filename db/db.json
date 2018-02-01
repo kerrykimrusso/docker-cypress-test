@@ -1,0 +1,14 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "name": "Claude Giroux",
+      "email": "cg@flyers.com"
+    },
+    {
+      "id": 2,
+      "name": "Sean Couts",
+      "email": "sc@gmail.com"
+    }
+  ]
+}
