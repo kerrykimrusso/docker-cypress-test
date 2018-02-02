@@ -1,4 +1,4 @@
-const baseUrl = 'http://0.0.0.0:3001/api';
+const baseUrl = process.env.REACT_APP_MOCK_SERVER || 'broken';
 
 export default class ContactsApi {
   static getAll = () =>
