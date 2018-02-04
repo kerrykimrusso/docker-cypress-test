@@ -1,0 +1,14 @@
+version: "3"
+
+services: 
+  ui:
+    image: contacts
+    ports: 
+    - 3000:3000
+    - 3001:3001
+    volumes:
+    - .:/ui
+    environment:
+    - REACT_APP_SERVER_URL=http://localhost:3001/api
+    entrypoint: >
+      bash -c "npm start"
