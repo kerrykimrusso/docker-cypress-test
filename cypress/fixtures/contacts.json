@@ -1,0 +1,24 @@
+{
+  "existingContacts": [
+    {
+      "id": 1,
+      "name": "Fake User 1",
+      "email": "fu1@fake.com"
+    },
+    {
+      "id": 2,
+      "name": "Fake User 2",
+      "email": "fu2@fake.com"
+    },
+    {
+      "id": 3,
+      "name": "Fake User 3",
+      "email": "fu3@fake.com"
+    }
+  ],
+  "newContact": {
+      "id": 4,
+      "name": "Fake User 4",
+      "email": "fu4@fake.com"
+    }
+}
