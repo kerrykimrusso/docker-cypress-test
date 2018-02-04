@@ -15,7 +15,7 @@ server.use(
 server.use(middlewares)
 server.use(router)
 
-const port = process.env.MOCK_SERVER_PORT || 3001;
+const port = 3001;
 server.listen(port, () => {
   console.log(`JSON Server is running on port ${port}`)
 })
