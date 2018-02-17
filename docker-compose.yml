@@ -2,12 +2,17 @@ version: "3"
 
 services: 
   ui:
-    image: contacts
+    container_name: contacts_ui
+    image: kerrykimrusso/contacts_ui
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
     ports: 
     - 3000:3000
     - 3001:3001
     volumes:
     - .:/ui
+    - /ui/node_modules
     environment:
     - REACT_APP_SERVER_URL=http://localhost:3001/api
     entrypoint: >
