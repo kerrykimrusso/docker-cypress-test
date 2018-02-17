@@ -31,7 +31,13 @@ export default class FilterableListView extends Component {
     }
 
     render() {
-        const { children, placeholder, cells, totalCellsCount } = this.props;
+        const { 
+            cells, 
+            children, 
+            placeholder, 
+            totalCellsCount 
+        } = this.props;
+        
         const { query } = this.state;
 
         return (
