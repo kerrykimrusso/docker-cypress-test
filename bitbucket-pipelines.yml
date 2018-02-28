@@ -5,9 +5,7 @@ pipelines:
           - node
         script: 
           - docker build -t ui .
-          - docker run -p 3000:3000 -p 3001:3001 ui
-          - npm build --production
-          - $(npm bin)/cypress run
+          - docker run -p 3000:3000 -p 3001:3001 ui npm start && npm run e2e
         services:
           - docker
         
