@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - 6
+cache:
+  directories:
+    - ~/.npm
+    - node_modules
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get -qq -y install xvfb libgtk2.0-0 libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2
+install:
+  - npm i --silent
+before_script:
+  - docker-compose build
+  - docker-compose up -d
+script:
+  - $(npm bin)/cypress run
+after_script: 
+  - docker-compose kill
